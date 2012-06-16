@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "DiplomaBot";
+}
+
+<div class = "WorkArea">
+    <div class="editor-label">        
+        <div class="EditArea">@Html.TextBox("Camper", "", new { style = "width: 300px;" })</div>
+        <div class = "Label">@Html.Label("Camper")</div>
+    </div>
+    <div class="editor-label">
+        <div class="EditArea">@Html.TextBox("ProjectName", "", new { style = "width: 300px;" })</div>        
+        <div class = "Label">@Html.Label("Project Name")</div>               
+    </div>
+
+    <div class="editor-label">        
+        <div class="EditArea">@Html.DropDownList("SelectedCourse")</div>
+        <div class = "Label">@Html.Label("Course")</div>
+    </div>
+
+    <div class="editor-label">
+        <div class="EditArea">@Html.DropDownList("SelectedInstructor")</div>        
+        <div class = "Label">@Html.Label("Instructor")</div>
+    </div>
+
+    <div class="editor-label">
+        <div class="EditArea">@Html.TextBox("PersonalizedMessage", "", new { style = "width: 300px;" })</div>           
+        <div class = "Label">@Html.Label("Personalized Message")</div>        
+    </div>
+    
+    <button id='Generate'>Generate</button>    
+
+    <div>
+        @Html.TextArea("Diploma")
+    </div>
+</div>
+
+<script type="text/jscript">
+    $('#Generate').click(function () {
+        $.ajax({
+            url: "/home/generate?camperName="+$('#Camper').val()+"&projectName="+$('#ProjectName').val()+"&personalizedMessage="+$('#PersonalizedMessage').val()+"&instructorName="+$('#SelectedInstructor').val()+"&courseName="+$('#SelectedCourse').val(),
+            type: 'POST',
+            success: function (data) {                
+                $('#Diploma').val(data);
+            },            
+        });
+    });
+
+</script>

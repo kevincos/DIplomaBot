@@ -1,0 +1,25 @@
+﻿@model WebDiplomaBot.Models.Template
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Template</legend>
+
+    <div class="display-label">Target</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Target)
+    </div>
+
+    <div class="display-label">Replacement</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Replacement)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TemplateID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

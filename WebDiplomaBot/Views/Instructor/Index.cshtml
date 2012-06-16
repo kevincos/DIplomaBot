@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebDiplomaBot.Models.Instructor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            LogonID
+        </th>
+        <th>
+            FullName
+        </th>
+        <th>
+            Nickname
+        </th>
+        <th>
+            Course
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LogonID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.CourseName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InstructorID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InstructorID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InstructorID })
+        </td>
+    </tr>
+}
+
+</table>

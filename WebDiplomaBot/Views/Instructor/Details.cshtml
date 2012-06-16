@@ -1,0 +1,35 @@
+﻿@model WebDiplomaBot.Models.Instructor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Instructor</legend>
+
+    <div class="display-label">LogonID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LogonID)
+    </div>
+
+    <div class="display-label">FullName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FullName)
+    </div>
+
+    <div class="display-label">Nickname</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nickname)
+    </div>
+
+    <div class="display-label">Course</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Course.CourseName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.InstructorID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
