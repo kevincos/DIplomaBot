@@ -21,5 +21,9 @@ namespace WebDiplomaBot.Models
         //{
           //  Database.SetInitializer(new MigrateDatabaseToLatestVersion<DiplomaContext, Configuration>());
         //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DiplomaContext, Configuration>());
+        }
     }
 }
